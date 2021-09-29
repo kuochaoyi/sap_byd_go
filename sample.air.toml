@@ -12,7 +12,7 @@ cmd = "swag i -o docs/ -g main.go; go build -o ./tmp/main main.go"
 bin = "tmp/main"
 # Customize binary.
 ## GIN_MODE: debug | test | release
-full_bin = "ServerCode=356235 \
+full_bin = "ServerCode=356235 SAP_USERNAME=LoveHB SAP_PASSWORD=05201015 \
             GIN_MODE=debug APP_USER=air \
             PG_HOST=localhost PG_PORT=5432 \
             PG_USER=rethel PG_PASSWORD=123Qa456 PG_DATABASE=pgtest \
