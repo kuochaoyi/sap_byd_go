@@ -14,22 +14,22 @@ type Get struct {
 	//Format                string // json
 }
 
-func MakeUrl(u *Get) string {
-	s := "https://my" + u.ServerCode + ".sapbydesign.com/sap/byd/odata/cust/v1/"
+func MakeUrl(g *Get) string {
+	s := "https://my" + g.ServerCode + ".sapbydesign.com/sap/byd/odata/cust/v1/"
 
-	if u.CustomApiName != "" {
-		s += u.CustomApiName + "/"
+	if g.CustomApiName != "" {
+		s += g.CustomApiName + "/"
 	}
 
-	s += u.BusinessObjectCollection
+	s += g.BusinessObjectCollection
 
-	if u.BusinessObjectWantToExpand != "" {
-		s += "?$expand=" + u.BusinessObjectWantToExpand
+	if g.BusinessObjectWantToExpand != "" {
+		s += "?$expand=" + g.BusinessObjectWantToExpand
 	}
 
 	// rules (Optional)
-	if u.FilterDate != "" {
-		s += "&$filter=Date%20ge%20datetime%27" + u.FilterDate + "T00:00:00%27"
+	if g.FilterDate != "" {
+		s += "&$filter=Date%20ge%20datetime%27" + g.FilterDate + "T00:00:00%27"
 	}
 	// ending
 	s += "&$format=json"
@@ -41,4 +41,4 @@ func MakeUrl(u *Get) string {
 //{ODataName}/{BusinessObjectCollection}?
 //${expand=BusinessObjectWantToExpand}&${select=aaa,bbb,ccc}&${orderby=Date%20desc}&${filter=ID%20eq%20%27999%27}&${format=json}
 
-//GET {{SAPByD}}/cust/v1/cinv/CustomerInvoiceCustomerInvoiceCollection?$expand=CustomerInvoiceItem/CustomerInvoicePriceAndTaxCalculationItem{{format}}{{date1}}
+//GET {{SAPByD}}
